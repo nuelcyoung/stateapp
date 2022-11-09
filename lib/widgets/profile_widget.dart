@@ -27,8 +27,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   Center(
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30.0),
-                      child: Image.network(
-                        'https://cdn.pixabay.com/photo/2020/11/04/07/52/pumpkin-5711688_960_720.jpg',
+                      child: Image.asset('assets/images/profile_image.jpg',
                         height: 150.0,
                         width: 150.0,
                       ),
