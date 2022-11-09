@@ -13,7 +13,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      color: Color.fromARGB(255, 195, 217, 247),
+      color: const Color.fromARGB(255, 195, 217, 247),
       padding: const EdgeInsets.only(left: 0.0, top: 15.0, right: 0.0),
       child: Stack(
         children: [
@@ -27,7 +27,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   Center(
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30.0),
-                      child: Image.asset('assets/images/profile_image.jpg',
+                      child: Image.asset(
+                        'assets/images/profile_image.jpg',
                         height: 150.0,
                         width: 150.0,
                       ),
@@ -79,23 +80,31 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   child: ListView(
                     itemExtent: 40.0,
                     children: [
-                      _buildList(0xfffcf4c5, Colors.orangeAccent, Icons.forum_outlined,
-                          "Start a chat", Icons.arrow_forward_ios),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      _buildList(0xffd0f1c5, Colors.green, Icons.person, "Expert replies",
+                      _buildList(
+                          0xfffcf4c5,
+                          Colors.orangeAccent,
+                          Icons.forum_outlined,
+                          "Start a chat",
                           Icons.arrow_forward_ios),
                       const SizedBox(
                         height: 20,
                       ),
-                      _buildList(0xfffbdec9,Colors.redAccent, Icons.star_border, "Review Ratings",
+                      _buildList(0xffd0f1c5, Colors.green, Icons.person,
+                          "Expert replies", Icons.arrow_forward_ios),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      _buildList(
+                          0xfffbdec9,
+                          Colors.redAccent,
+                          Icons.star_border,
+                          "Review Ratings",
                           Icons.arrow_forward_ios),
                       const SizedBox(
                         height: 20,
                       ),
-                      _buildList(0xffc6e0fd,Colors.blueAccent, Icons.list, "Asked Questions",
-                          Icons.arrow_forward_ios),
+                      _buildList(0xffc6e0fd, Colors.blueAccent, Icons.list,
+                          "Asked Questions", Icons.arrow_forward_ios),
                       const SizedBox(
                         height: 20,
                       ),
@@ -110,8 +119,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     );
   }
 
-  Widget _buildList(
-      int color, Color iconcolor, IconData iconname, String text, IconData trailing) {
+  Widget _buildList(int color, Color iconcolor, IconData iconname, String text,
+      IconData trailing) {
     return ListTile(
       leading: Container(
           height: 40.0,
@@ -120,7 +129,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             color: Color(color),
             borderRadius: const BorderRadius.all(Radius.circular(5)),
           ),
-          child: Icon(iconname,color: iconcolor,)),
+          child: Icon(
+            iconname,
+            color: iconcolor,
+          )),
       title: Text(text),
       trailing: IconButton(onPressed: () {}, icon: Icon(trailing)),
     );
