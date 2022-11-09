@@ -13,8 +13,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      color: Colors.indigo[100],
-      padding: const EdgeInsets.only(left:15.0,top: 15.0,right: 15.0),
+      color: Color.fromARGB(255, 195, 217, 247),
+      padding: const EdgeInsets.only(left: 0.0, top: 15.0, right: 0.0),
       child: Stack(
         children: [
           Positioned(
@@ -26,29 +26,31 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                 children: [
                   Center(
                     child: ClipRRect(
-                        borderRadius: BorderRadius.circular(500),
-                        child: Image.network(
-                          'https://cdn.pixabay.com/photo/2017/08/01/08/29/woman-2563491_960_720.jpg',
-                          height: 200.0,
-                        )),
+                      borderRadius: BorderRadius.circular(30.0),
+                      child: Image.network(
+                        'https://cdn.pixabay.com/photo/2020/11/04/07/52/pumpkin-5711688_960_720.jpg',
+                        height: 150.0,
+                        width: 150.0,
+                      ),
+                    ),
                   ),
                   const SizedBox(
-                    height: 20.0,
+                    height: 5.0,
                   ),
                   const Text(
                     "Stephanie Milton",
                     style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
                   ),
                   const SizedBox(
-                    height: 20.0,
+                    height: 10.0,
                   ),
                   Container(
-                    padding: const EdgeInsets.all(20),
-                    width: 150,
-                    height: 50,
+                    padding: const EdgeInsets.all(10.0),
+                    width: 80,
+                    height: 40,
                     decoration: BoxDecoration(
-                        color: Colors.blue[400],
+                        color: Colors.blue[300],
                         borderRadius: BorderRadius.circular(25)),
                     child: const Text(
                       "Favorite",
@@ -63,36 +65,65 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             bottom: 0,
             child: Container(
               width: screenWidth * 1.0,
-              height: screenHeight * 0.4,
+              height: screenHeight - 400.0,
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20)),
+                    topLeft: Radius.circular(75),
+                    topRight: Radius.circular(75)),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(30),
-                    color: Colors.white,
-                    child: ListTile(
-                      title: const Text(
-                        "Start a Chat",
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 45.0),
+                child: Container(
+                  padding: const EdgeInsets.only(left: 30, right: 30),
+                  height: screenHeight - 300.0,
+                  child: ListView(
+                    itemExtent: 40.0,
+                    children: [
+                      _buildList(0xfffcf4c5, Colors.orangeAccent, Icons.forum_outlined,
+                          "Start a chat", Icons.arrow_forward_ios),
+                      const SizedBox(
+                        height: 20,
                       ),
-                      leading: const Icon(Icons.message),
-                      trailing: IconButton(
-                          onPressed: (() {}), icon: const Icon(Icons.forward)),
-                    ),
+                      _buildList(0xffd0f1c5, Colors.green, Icons.person, "Expert replies",
+                          Icons.arrow_forward_ios),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      _buildList(0xfffbdec9,Colors.redAccent, Icons.star_border, "Review Ratings",
+                          Icons.arrow_forward_ios),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      _buildList(0xffc6e0fd,Colors.blueAccent, Icons.list, "Asked Questions",
+                          Icons.arrow_forward_ios),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
           )
         ],
       ),
+    );
+  }
+
+  Widget _buildList(
+      int color, Color iconcolor, IconData iconname, String text, IconData trailing) {
+    return ListTile(
+      leading: Container(
+          height: 40.0,
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: Color(color),
+            borderRadius: const BorderRadius.all(Radius.circular(5)),
+          ),
+          child: Icon(iconname,color: iconcolor,)),
+      title: Text(text),
+      trailing: IconButton(onPressed: () {}, icon: Icon(trailing)),
     );
   }
 }
