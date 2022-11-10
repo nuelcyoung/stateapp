@@ -1,17 +1,38 @@
 import 'package:flutter/material.dart';
 
-class HomeWidget extends StatefulWidget {
+class HomeWidget extends StatelessWidget {
   const HomeWidget({super.key});
 
   @override
-  State<HomeWidget> createState() => _HomeWidgetState();
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: ContactList(),
+    );
+  }
 }
 
-class _HomeWidgetState extends State<HomeWidget> {
+class ContactList extends StatefulWidget {
+  const ContactList({super.key});
+
+  @override
+  State<ContactList> createState() => _ContactListState();
+}
+
+class _ContactListState extends State<ContactList> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("Home"),
-    );
+    return ListView.builder(
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: const Text("Nuel Young"),
+            trailing: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.remove_circle,
+                  color: Colors.red,
+                )),
+          );
+        });
   }
 }

@@ -25,18 +25,21 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Center(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(30.0),
-                      child: Image.asset(
-                        'assets/images/profile_image.jpg',
-                        height: 150.0,
-                        width: 150.0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(5),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(35),
+                        child: Image.asset(
+                          'assets/images/profile_image.jpg',
+                          height: 150.0,
+                          width: 150.0,
+                        ),
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 5.0,
-                  ),
+                  // const SizedBox(
+                  //   height: 5.0,
+                  // ),
                   const Text(
                     "Stephanie Milton",
                     style:

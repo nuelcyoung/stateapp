@@ -30,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: _widgetOption[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
           onTap: ((value) {
             setState(() {
               _selectedIndex = value;

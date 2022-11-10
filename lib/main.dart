@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:stateapp/providers/counter.dart';
+import 'package:stateapp/providers/favorite_provider.dart';
 import 'package:stateapp/views/home.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => Counter()),
+      ChangeNotifierProvider(create: (_) => FavoriteProvider()),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,7 +23,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.grey,
+        primarySwatch: Colors.blue,
+        useMaterial3: true,
       ),
       home: const HomeScreen(),
     );
