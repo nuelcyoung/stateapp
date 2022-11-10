@@ -13,7 +13,11 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
   @override
   Widget build(BuildContext context) {
     return Consumer<FavoriteProvider>(builder: (context, index, child) {
-      
+      return ListView.builder(
+          //itemCount: index.favoriteContacts.length,
+          itemBuilder: (context, index) {
+        return (const Text("datat"));
+      });
     });
   }
 }

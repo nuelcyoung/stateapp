@@ -28,9 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: _appBarOption[_selectedIndex],
       ),
-      body: _widgetOption[_selectedIndex],
+      body: SafeArea(child: _widgetOption[_selectedIndex]),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
+          currentIndex: _selectedIndex,
           onTap: ((value) {
             setState(() {
               _selectedIndex = value;

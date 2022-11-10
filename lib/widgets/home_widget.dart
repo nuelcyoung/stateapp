@@ -25,12 +25,24 @@ class _ContactListState extends State<ContactList> {
         itemCount: 10,
         itemBuilder: (context, index) {
           return ListTile(
+            leading: ClipRRect(
+                borderRadius: BorderRadius.circular(30.0),
+                child: Image.asset(
+                  'assets/images/baby.jpg',
+                  width: 60.0,
+                  height: 60.0,
+                )),
             title: const Text("Nuel Young"),
-            trailing: IconButton(
+            subtitle: const Text("+2348134713948"),
+            trailing: ElevatedButton.icon(
                 onPressed: () {},
                 icon: const Icon(
-                  Icons.remove_circle,
+                  Icons.close_rounded,
                   color: Colors.red,
+                ),
+                label: const Text(
+                  "Add",
+                  style: TextStyle(color: Colors.red),
                 )),
           );
         });
